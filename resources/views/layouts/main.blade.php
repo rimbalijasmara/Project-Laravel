@@ -16,5 +16,6 @@
     <script src="https://kit.fontawesome.com/9396f03b54.js" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
      {{-- font awesome & Bootstrap --}}
-    
+    @include('layouts.navbar')
+    @yield('content')
 </body>
