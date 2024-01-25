@@ -3,6 +3,7 @@
 
 <title>{{ $title }}</title>
 <div class="container-fluid pt-5 pb-5 Kontak & Alamat">
+    @foreach ($items as $item)
   <form action="/contact" method="post" id="ContactForm" data-sb-form-api-token="API_TOKEN">
     @csrf
     <div class="container">
@@ -11,21 +12,12 @@
       <div class="row pb-3">
         <div class="col-md-6">
             <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-            <textarea class="form-control" name="komen" id="komen" class="komen" rows="4"></textarea><br>
+            <textarea class="form-control" name="komen" id="komen" class="komen" rows="4">{{ $item ->komen }}</textarea><br>
             <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-        @foreach ($items as $item)
-        <div class="card w-75 mb-3" style="width: 12rem; height:14rem;">
-           <div class="card-body">
-             <h5 class="card-title">Isi Pesan</h5>
-             <p class="card-text">{{ $item ->komen }}</p>
-           <a href="template.edit" class="btn btn-warning">Edit</a>
-           </div>
-         </div>
-          </div>@endforeach
+        </div>@endforeach
+          </div>
         </div>
       </form>
-        
       </div>
     </div>
   </div>

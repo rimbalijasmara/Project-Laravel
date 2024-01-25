@@ -29,3 +29,4 @@ Route::get('/index',function(){
 
 Route::get('/contact', [ContactController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);
+Route::post('/edit', [ContactController::class, 'edit']);
