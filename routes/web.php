@@ -26,6 +26,10 @@ Route::get('/index',function(){
     return view('template.index',
     ['title' => 'home']);
 });
+Route::get('/edit',function(){
+    return view('template.edit',
+    ['title' => 'edit']);
+});
 
 Route::get('/contact', [ContactController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store']);

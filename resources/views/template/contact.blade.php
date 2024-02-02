@@ -1,5 +1,5 @@
-@include('layouts.main')
-@include('layouts.navbar')
+@extends('layouts.main')
+@extends('layouts.navbar')
 
 <title>{{ $title }}</title>
 <div class="container-fluid pt-5 pb-5 Kontak & Alamat">
@@ -14,17 +14,27 @@
             <textarea class="form-control" name="komen" id="komen" class="komen" rows="4"></textarea><br>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+        
         @foreach ($items as $item)
-        <div class="card w-75 mb-3" style="width: 12rem; height:14rem;">
-           <div class="card-body">
-             <h5 class="card-title">Isi Pesan</h5>
-             <p class="card-text">{{ $item ->komen }}</p>
-           <a href="template.edit" class="btn btn-warning">Edit</a>
-           </div>
-         </div>
-          </div>@endforeach
+        <div class="card w-75 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Isi Pesan</h5>
+
+                <p class="card-text">{{ $item->$data}}</p>
+
+                <form action="{{ route('template.delete', $item) }}" method="post">
+
+                    <a href="{{ route('template.edit', $item) }}" class="btn btn-primary">Edit</a>
+                    <!-- Inside the foreach loop for displaying items -->
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-primary">Hapus</button>
+                </form>
+
+            </div>
         </div>
-      </form>
+    @endforeach
         
       </div>
     </div>
